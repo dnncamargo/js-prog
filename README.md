@@ -10,7 +10,7 @@ Instale o Node.js em <br>
 https://nodejs.org/en/ <br><br>
 
 Verifique se a instalação foi bem concluída<br>
-Terminal > Novo terminal (ctrl+shift+')
+Terminal > Novo terminal (ctrl+shift+')<br>
 ``node -v``<br><br>
 
 
