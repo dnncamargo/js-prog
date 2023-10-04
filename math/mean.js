@@ -12,3 +12,6 @@ while(count < process.argv.length) {
     console.log(count+1 + ": " + process.argv[count])
     count++
 }
+
+let sum = 0
+while(process.argv)
