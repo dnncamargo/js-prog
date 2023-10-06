@@ -16,9 +16,10 @@ console.log("Tamanho do vetor de argumentos: " + process.argv.length)
 let mean = 0
 for(let i = 2; i < process.argv.length; i++) {
     //console.log(i + "> " + parseInt(process.argv[i]))
-    mean += parseInt(process.argv[i])
+    mean += parseFloat(process.argv[i])
+    (process.argv[i])
 }
 //console.log(mean)
 mean /= (process.argv.length-2)
 
-console.log("Mean: " + mean)
+console.log("Arithmetic mean: " + mean)
