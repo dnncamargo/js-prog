@@ -7,42 +7,10 @@
 const file = 'weighted_mean_source.csv';
 const fs = require('fs');
 
-fs.readFile(file, 'utf8', (err, data) => {
+let data = fs.readFile(file, 'utf8', (err, data) => {
   if (err) {
     console.error(err);
-    return;
+    return data;
   }
   console.log(data);
 });
-
-const csv = require('csv-parser'); // You may need to install 'csv-parser' package if not available
-
-// Initialize variables to store the sum of products and sum of weights
-let sumOfProducts = 0;
-let sumOfWeights = 0;
-
-// Read the CSV file (replace 'input.csv' with your file name)
-fs.createReadStream(file)
-  .pipe(csv())
-  .on('data', (row) => {
-    // Parse the value and weight from the CSV row
-    const value = parseFloat(row.VALUE);
-    console.log(value)
-    const weight = parseFloat(row.WEIGHT);
-    console.log(weight)
-
-    // Check if both value and weight are valid numbers
-    if (!isNaN(value) && !isNaN(weight)) {
-      // Calculate the product of value and weight and add it to the sum of products
-      sumOfProducts += value * weight;
-      // Add the weight to the sum of weights
-      sumOfWeights += weight;
-    }
-  })
-  .on('end', () => {
-    // Calculate the weighted mean
-    const weightedMean = sumOfProducts / sumOfWeights;
-
-    // Print the result
-    console.log('Weighted Mean:', weightedMean);
-  });
